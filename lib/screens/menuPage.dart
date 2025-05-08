@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:task_management/screens/home.dart';
+import 'package:task_management/screens/settings.dart';
 import 'package:task_management/widgets/constant.dart';
 
 class MenuPage extends StatefulWidget {
@@ -51,10 +52,24 @@ class _MenuPageState extends State<MenuPage> {
             SizedBox(height: height * .035),
             Text("Help", style: TextStyle(fontSize: 30, color: kDark)),
             SizedBox(height: height * .035),
-            Text("Settings", style: TextStyle(fontSize: 30, color: kDark)),
+            // Text("Settings", style: TextStyle(fontSize: 30, color: kDark)),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                );
+              },
+              child: Text(
+                "Settings",
+                style: TextStyle(fontSize: 30, color: kDark),
+              ),
+            ),
             SizedBox(height: height * .035),
             GestureDetector(
-              onTap: () {SystemNavigator.pop();},
+              onTap: () {
+                SystemNavigator.pop();
+              },
               child: Text(
                 "Logout",
                 style: TextStyle(fontSize: 30, color: kDark),
