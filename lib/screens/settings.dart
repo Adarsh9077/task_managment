@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/components/customText.dart';
 import 'package:task_management/components/upper_header.dart';
 import 'package:task_management/screens/menuPage.dart';
 import 'package:task_management/widgets/constant.dart';
@@ -111,13 +112,11 @@ class _SettingsPageState extends State<SettingsPage> {
               Row(
                 children: [
                   if (isSound == true)
-                    Icon(Icons.volume_up_outlined, size: 22, color: kDark)
+                    Icon(Icons.volume_up_outlined, size: 32, color: kDark)
                   else
-                    Icon(Icons.volume_off_outlined, size: 22, color: kDark),
+                    Icon(Icons.volume_off_outlined, size: 32, color: kDark),
                   SizedBox(width: height * 0.015),
-                  Expanded(
-                    child: Text("Sound", style: TextStyle(fontSize: 22)),
-                  ),
+                  Expanded(child: customText("Sound", 24)),
                   CupertinoSwitch(
                     value: isSound,
                     onChanged: (bool value) {
@@ -128,6 +127,84 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ],
               ),
+              SizedBox(height: height * 0.02),
+              Row(
+                children: [
+                  if (isSwitch == true)
+                    Icon(Icons.notifications_active_outlined, size: 32)
+                  else
+                    Icon(Icons.notifications_off_outlined, size: 32),
+                  SizedBox(width: height * 0.015),
+                  Expanded(child: customText("Notification", 24)),
+                  CupertinoSwitch(
+                    value: isSwitch,
+                    onChanged: (bool value) {
+                      setState(() {
+                        isSwitch = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(height: height * 0.025),
+              GestureDetector(
+                onTap: () {
+                  print("redirect to Privacy and Policy Page ");
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.lock_open_outlined, size: 32),
+                    SizedBox(width: height * 0.015),
+                    Expanded(child: customText("Privacy & Policy", 24)),
+                    Icon(Icons.arrow_forward_ios_rounded),
+                  ],
+                ),
+              ),
+              SizedBox(height: height * 0.02),
+              GestureDetector(
+                onTap: () {
+                  print("Redirect to About App");
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.info_outline, size: 32),
+                    SizedBox(width: height * 0.015),
+                    Expanded(child: customText("About App", 24)),
+                    Icon(Icons.arrow_forward_ios_rounded),
+                  ],
+                ),
+              ),
+              SizedBox(height: height * 0.02),
+              GestureDetector(
+                onTap: () {
+                  print("Redirect to Help And Support Page");
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.help_outline, size: 32),
+                    SizedBox(width: height * 0.015),
+                    Expanded(child: customText("Help & Support", 24)),
+                    Icon(Icons.arrow_forward_ios_rounded),
+                  ],
+                ),
+              ),
+              Divider(
+                height: 60,
+                color: kBlueLight,
+                thickness: 2,
+                endIndent: 33,
+                indent: 22,
+              ),
+              // Container(width: double.infinity,height: height * 0.025,color: kRed,),
+              GestureDetector(
+                onTap: () {
+                  print("sign out too ho-ga ");
+                },
+                child: customText("Sign Out", 20),
+              ),
+              SizedBox(height: height * 0.001),
+              // Text("version:1.2.354".toUpperCase(),)
+              customText("version:1.2.354".toUpperCase(), 20),
             ],
           ),
         ),
