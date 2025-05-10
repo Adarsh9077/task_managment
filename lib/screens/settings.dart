@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task_management/components/customText.dart';
 import 'package:task_management/components/upper_header.dart';
 import 'package:task_management/screens/menuPage.dart';
+import 'package:task_management/screens/privacySecurityPage.dart';
 import 'package:task_management/widgets/constant.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -150,6 +151,10 @@ class _SettingsPageState extends State<SettingsPage> {
               GestureDetector(
                 onTap: () {
                   print("redirect to Privacy and Policy Page ");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrivacySecurity()),
+                  );
                 },
                 child: Row(
                   children: [
