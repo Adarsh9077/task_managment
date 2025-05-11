@@ -17,7 +17,7 @@ Widget upperHeader(
         GestureDetector(
           onTap: () {
             print(height);
-            Navigator.pushReplacement(
+            Navigator.pop(
               context,
               MaterialPageRoute(builder: (context) => page),
             );

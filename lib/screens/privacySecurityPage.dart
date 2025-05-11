@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_management/components/customText.dart';
 import 'package:task_management/components/upper_header.dart';
+import 'package:task_management/screens/changePassword.dart';
 import 'package:task_management/screens/settings.dart';
 import 'package:task_management/widgets/constant.dart';
 
@@ -33,7 +34,12 @@ class _PrivacySecurityState extends State<PrivacySecurity> {
                 SizedBox(height: height * 0.03),
                 customText("Login & Security", 20),
                 SizedBox(height: height * 0.0001),
-                CustomOption("Password", Icons.lock, () {}),
+                CustomOption("Password", Icons.lock, () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChangePassword()),
+                  );
+                }),
                 CustomOption("My Account", Icons.account_circle, () {}),
                 CustomOption("My Data", Icons.save_alt, () {}),
                 // CustomOption("Password", Icons.lock, () {}),
