@@ -52,6 +52,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           currPassword,
                           () {},
                         ),
+                        SizedBox(height: height * 0.025),
                         ElevatedButton(
                           onPressed: () {
                             print(currPassword.text.toString());
@@ -72,10 +73,29 @@ class _ChangePasswordState extends State<ChangePassword> {
 
   Widget CustomInputTextField(String hintText, customController, onTap) {
     // print(customController);
+    var showInput = false;
+    showTextInputFuc() {
+      showInput =!showInput;
+
+      setState(() {
+        print(showInput);
+      });
+    }
+
     return TextField(
+      obscureText: showInput,
+      obscuringCharacter: "*",
       controller: customController,
       onTap: onTap,
-      decoration: InputDecoration(hintText: hintText),
+      decoration: InputDecoration(
+        hintText: hintText,
+        suffixIcon: IconButton(
+          onPressed: () {
+            showTextInputFuc();
+          },
+          icon: Icon(Icons.remove_red_eye_outlined),
+        ),
+      ),
     );
   }
 }
