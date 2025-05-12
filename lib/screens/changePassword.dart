@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_management/components/upper_header.dart';
 import 'package:task_management/screens/settings.dart';
 import 'package:task_management/widgets/constant.dart';
+import 'package:task_management/widgets/passwordInputField.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
@@ -10,10 +11,18 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
+
+  TextEditingController currPassword = TextEditingController();
+  showTextInputFuc(showInput) {
+    showInput =!showInput;
+
+    setState(() {
+      print(showInput);
+    });
+  }
   @override
   Widget build(BuildContext content) {
     var height = MediaQuery.of(context).size.height;
-    TextEditingController currPassword = TextEditingController();
     return Scaffold(
       backgroundColor: kWhite,
       body: SafeArea(
@@ -47,11 +56,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         ),
                         SizedBox(height: height * 0.025),
                         // TextField(decoration: InputDecoration(enabledBorder: ),),
-                        CustomInputTextField(
-                          "Current Password",
-                          currPassword,
-                          () {},
-                        ),
+                        PasswordInputField(hintText: "hintText", controller: currPassword),
                         SizedBox(height: height * 0.025),
                         ElevatedButton(
                           onPressed: () {
@@ -71,31 +76,4 @@ class _ChangePasswordState extends State<ChangePassword> {
     );
   }
 
-  Widget CustomInputTextField(String hintText, customController, onTap) {
-    // print(customController);
-    var showInput = false;
-    showTextInputFuc() {
-      showInput =!showInput;
-
-      setState(() {
-        print(showInput);
-      });
-    }
-
-    return TextField(
-      obscureText: showInput,
-      obscuringCharacter: "*",
-      controller: customController,
-      onTap: onTap,
-      decoration: InputDecoration(
-        hintText: hintText,
-        suffixIcon: IconButton(
-          onPressed: () {
-            showTextInputFuc();
-          },
-          icon: Icon(Icons.remove_red_eye_outlined),
-        ),
-      ),
-    );
-  }
 }
