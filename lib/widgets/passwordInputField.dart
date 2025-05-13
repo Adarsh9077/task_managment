@@ -26,7 +26,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
     return TextField(
       controller: widget.controller,
       obscureText: _obscureText,
-      obscuringCharacter: '*',
+      // obscuringCharacter: '*',
       decoration: InputDecoration(
         hintText: widget.hintText,
         suffixIcon: IconButton(

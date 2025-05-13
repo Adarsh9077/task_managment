@@ -11,15 +11,18 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-
   TextEditingController currPassword = TextEditingController();
+  TextEditingController newPassword = TextEditingController();
+  TextEditingController conformPassword = TextEditingController();
+
   showTextInputFuc(showInput) {
-    showInput =!showInput;
+    showInput = !showInput;
 
     setState(() {
       print(showInput);
     });
   }
+
   @override
   Widget build(BuildContext content) {
     var height = MediaQuery.of(context).size.height;
@@ -29,7 +32,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         child: Scaffold(
           // appBar: ,
           body: Padding(
-            padding: EdgeInsets.only(top: 20, left: 25, right: 25),
+            padding: EdgeInsets.only(top: 20, left: 12, right: 12),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +59,20 @@ class _ChangePasswordState extends State<ChangePassword> {
                         ),
                         SizedBox(height: height * 0.025),
                         // TextField(decoration: InputDecoration(enabledBorder: ),),
-                        PasswordInputField(hintText: "hintText", controller: currPassword),
+                        PasswordInputField(
+                          hintText: "Current Password",
+                          controller: currPassword,
+                        ),
+                        SizedBox(height: height * 0.025),
+                        PasswordInputField(
+                          hintText: "New Password",
+                          controller: newPassword,
+                        ),
+                        SizedBox(height: height * 0.025),
+                        PasswordInputField(
+                          hintText: "Conform Password",
+                          controller: conformPassword,
+                        ),
                         SizedBox(height: height * 0.025),
                         ElevatedButton(
                           onPressed: () {
@@ -75,5 +91,4 @@ class _ChangePasswordState extends State<ChangePassword> {
       ),
     );
   }
-
 }
