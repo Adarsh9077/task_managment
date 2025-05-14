@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:task_management/widgets/constant.dart';
 
@@ -101,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.grey[700],
                 ),
               ),
-              SizedBox(height: height * 0.015),
+              SizedBox(height: height * 0.008),
               Row(
                 children: [
                   SizedBox(
@@ -132,8 +134,82 @@ class _ProfilePageState extends State<ProfilePage> {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      "change Username",
+                      "Change Username",
                       style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Icon(Icons.edit, size: 16, color: Colors.blue),
+                ],
+              ),
+
+              SizedBox(height: height * 0.015),
+              Text(
+                "Phone Number",
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(height: height * 0.008),
+              Row(
+                children: [
+                  SizedBox(
+                    width: height * 0.20,
+                    height: height * 0.045,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "+91 99 999 99 999",
+                        hintStyle: TextStyle(
+                          color: kLightGrey,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w800,
+                        ),
+                        contentPadding: EdgeInsets.only(left: 10),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Change Number",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Icon(Icons.edit, color: Colors.blue, size: 16),
+                ],
+              ),
+              SizedBox(height: height * 0.015),
+              Text(
+                "Email Address",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey[700],
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(height: height * .008),
+              Row(
+                children: [
+                  SizedBox(
+                    width: height * .25,
+                    height: height * 0.045,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
+                        hintText: "adarshqwerty123@gmail.com",
+                        hintStyle: TextStyle()
+                      ),
                     ),
                   ),
                 ],
