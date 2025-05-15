@@ -34,14 +34,14 @@ class _PrivacySecurityState extends State<PrivacySecurity> {
                 SizedBox(height: height * 0.03),
                 customText("Login & Security", 20),
                 SizedBox(height: height * 0.0001),
-                CustomOption("Password", Icons.lock, () {
+                customOption("Password", Icons.lock, () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ChangePassword()),
                   );
                 }),
-                CustomOption("My Account", Icons.account_circle, () {}),
-                CustomOption("My Data", Icons.save_alt, () {}),
+                customOption("My Account", Icons.account_circle, () {}),
+                customOption("My Data", Icons.save_alt, () {}),
                 // CustomOption("Password", Icons.lock, () {}),
               ],
             ),
@@ -50,33 +50,33 @@ class _PrivacySecurityState extends State<PrivacySecurity> {
       ),
     );
   }
+}
 
-  Widget CustomOption(String txt, IconData icon, onTap) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15.0),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Icon(icon, size: 30, color: kLightGrey),
-            SizedBox(width: 15),
-            Expanded(
-              child: Text(
-                txt,
-                style: TextStyle(
-                  color: kLightGrey,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                ),
+Widget customOption(String txt, IconData icon, onTap) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 15.0),
+    child: GestureDetector(
+      onTap: onTap,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Icon(icon, size: 30, color: kLightGrey),
+          SizedBox(width: 15),
+          Expanded(
+            child: Text(
+              txt,
+              style: TextStyle(
+                color: kLightGrey,
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
               ),
             ),
-            Icon(Icons.arrow_forward_ios_rounded, color: kLightGrey),
-          ],
-        ),
+          ),
+          Icon(Icons.arrow_forward_ios_rounded, color: kLightGrey),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
 
 // 38:30
