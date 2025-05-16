@@ -55,9 +55,15 @@ class _ContactUsPageState extends State<ContactUsPage> {
               SizedBox(height: height * 0.015),
               Column(
                 children: [
-                  formTextFields("Name", nameController, TextInputType.name),
+                  formTextFields(
+                    "Name",
+                    "Enter Your Name",
+                    nameController,
+                    TextInputType.name,
+                  ),
                   SizedBox(height: height * 0.015),
                   formTextFields(
+                    "Email",
                     "Email",
                     emailController,
                     TextInputType.emailAddress,
@@ -65,16 +71,35 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   SizedBox(height: height * 0.015),
                   formTextFields(
                     "Message",
+                    "Message",
                     messageController,
                     TextInputType.text,
                   ),
                   SizedBox(height: height * 0.015),
-                  formTextFields(
-                    "Number",
-                    messageController,
-                    TextInputType.number,
+
+                  SizedBox(
+                    height: height * 0.06,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shape: WidgetStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        backgroundColor: WidgetStatePropertyAll(kDark),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Submit",
+                        style: TextStyle(
+                          color: kWhite,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
                   ),
-                  SizedBox(height: height * 0.015),
                 ],
               ),
             ],
@@ -85,13 +110,19 @@ class _ContactUsPageState extends State<ContactUsPage> {
   }
 }
 
-Widget formTextFields(String hintTxt, inputController, inputKeyboardType) {
+Widget formTextFields(
+  String labelName,
+  String hintTxt,
+  inputController,
+  inputKeyboardType,
+) {
   return SizedBox(
     height: 50,
     child: TextField(
       keyboardType: inputKeyboardType,
       controller: inputController,
       decoration: InputDecoration(
+        label: Text(labelName),
         hintText: hintTxt,
         hintStyle: TextStyle(
           fontSize: 18,
