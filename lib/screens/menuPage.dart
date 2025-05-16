@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:task_management/screens/contactUsPage.dart';
 import 'package:task_management/screens/helpPage.dart';
 import 'package:task_management/screens/home.dart';
 import 'package:task_management/screens/settings.dart';
@@ -49,7 +50,18 @@ class _MenuPageState extends State<MenuPage> {
             SizedBox(height: height * .13),
             Text("About Us", style: TextStyle(fontSize: 30, color: kDark)),
             SizedBox(height: height * .035),
-            Text("Contact Us", style: TextStyle(fontSize: 30, color: kDark)),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContactUsPage()),
+                );
+              },
+              child: Text(
+                "Contact Us",
+                style: TextStyle(fontSize: 30, color: kDark),
+              ),
+            ),
             SizedBox(height: height * .035),
             GestureDetector(
               onTap: () {
@@ -61,7 +73,6 @@ class _MenuPageState extends State<MenuPage> {
               child: Text("Help", style: TextStyle(fontSize: 30, color: kDark)),
             ),
             SizedBox(height: height * .035),
-            // Text("Settings", style: TextStyle(fontSize: 30, color: kDark)),
             GestureDetector(
               onTap: () {
                 Navigator.push(

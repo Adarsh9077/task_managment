@@ -27,7 +27,7 @@ Widget upperHeader(
         SizedBox(width: height * 0.02),
         customText(text, 28),
         Expanded(child: Container()),
-        isIcon ? Icon(Icons.mail_outline_rounded) : Container(),
+        isIcon ? Icon(Icons.search) : Container(),
       ],
     ),
   );

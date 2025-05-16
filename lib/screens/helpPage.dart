@@ -9,7 +9,7 @@ class HelpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
+    // var height = MediaQuery.of(context).size.height;
     return Container(
       color: kWhite,
       child: SafeArea(
@@ -21,7 +21,22 @@ class HelpPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 upperHeader("Help", context, false, MenuPage()),
-                customOption("Report a problem", Icons.report, () {}),
+                customOption(
+                  "Report a problem",
+                  Icons.report_gmailerrorred,
+                  () {},
+                ),
+                customOption(
+                  "Account Status",
+                  Icons.account_box_outlined,
+                  () {},
+                ),
+                customOption("Privacy & Security help", Icons.security, () {}),
+                customOption(
+                  "Submit Request",
+                  Icons.settings_applications_outlined,
+                  () {},
+                ),
               ],
             ),
           ),
@@ -30,4 +45,3 @@ class HelpPage extends StatelessWidget {
     );
   }
 }
-//37:30 part4
