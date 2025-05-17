@@ -4,6 +4,7 @@ import 'package:task_management/widgets/constant.dart';
 class Task {
   IconData? icon;
   String? title;
+  List<Map<String, dynamic>>? desc;
   Color? bgColor;
   Color? iconColor;
   Color? btnColor;
@@ -14,6 +15,7 @@ class Task {
   Task({
     this.icon,
     this.title,
+    this.desc,
     this.bgColor,
     this.iconColor,
     this.btnColor,
@@ -37,6 +39,7 @@ class Task {
       Task(
         icon: Icons.person_rounded,
         title: "Personal",
+        desc: [{}],
         bgColor: kBlueLight,
         iconColor: kBlueDark,
         btnColor: kBlue,
@@ -47,6 +50,36 @@ class Task {
       Task(
         icon: Icons.work_rounded,
         title: "Work",
+        desc: [
+          {
+            'time': '9:00 AM',
+            'title': 'Create a video',
+            'slot': '9:00 AM - 10:00 AM',
+            'titleColor': kYellow,
+            'bgColor': kYellowLight,
+          },
+          {
+            'time': '10:00 AM',
+            'title': 'Watch Dsa, Love Babbar video',
+            'slot': '10:00 AM - 11:00 AM',
+            'titleColor': kYellow,
+            'bgColor': kYellowLight,
+          },
+          {
+            'time': '11:00 AM',
+            'title': '',
+            'slot': '',
+            'titleColor': kYellow,
+            'bgColor': kYellowLight,
+          },
+          {
+            'time': '12:00 PM',
+            'title': 'Solve a question of BST',
+            'slot': '9:00 AM - 10:00 AM',
+            'titleColor': kYellow,
+            'bgColor': kYellowLight,
+          },
+        ],
         bgColor: kYellowLight,
         iconColor: kYellowDark,
         btnColor: kYellow,
@@ -57,6 +90,7 @@ class Task {
       Task(
         icon: Icons.favorite_rounded,
         title: "Health",
+        desc: [{}],
         bgColor: kRedLight,
         iconColor: kRedDark,
         btnColor: kRed,
@@ -68,6 +102,7 @@ class Task {
       Task(
         icon: Icons.person_rounded,
         title: "Personal",
+        desc: [{}],
         bgColor: kBlueLight,
         iconColor: kBlueDark,
         btnColor: kBlue,
