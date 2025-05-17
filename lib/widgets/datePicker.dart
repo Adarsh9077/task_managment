@@ -23,7 +23,25 @@ class _DatePickerState extends State<DatePicker> {
           topRight: Radius.circular(30),
         ),
       ),
-      // child: ,
+      child: ListView.separated(
+        itemBuilder:
+            (context, index) => GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedDay = index;
+                });
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 17),
+                margin: EdgeInsets.symmetric(horizontal: 0.5),
+                decoration: BoxDecoration(
+                  color: selectedDay == index ? Colors.grey[600]:null
+                ),
+              ),
+            ),
+        separatorBuilder: (_, index) => SizedBox(width: 21),
+        itemCount: weekDays.length,
+      ),
     );
   }
 }
