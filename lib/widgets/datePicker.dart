@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/widgets/constant.dart';
 
 class DatePicker extends StatefulWidget {
   const DatePicker({super.key});
@@ -35,7 +36,23 @@ class _DatePickerState extends State<DatePicker> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 17),
                 margin: EdgeInsets.symmetric(horizontal: 0.5),
                 decoration: BoxDecoration(
-                  color: selectedDay == index ? Colors.grey[600]:null
+                  color:
+                      selectedDay == index
+                          ? Colors.grey.withValues(alpha: 0.3)
+                          : null,
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      weekDays[index],
+                      style: TextStyle(
+                        color: kBlack,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                  ],
                 ),
               ),
             ),
@@ -46,4 +63,4 @@ class _DatePickerState extends State<DatePicker> {
   }
 }
 
-//14:15 part 5
+//20:00 part 5
