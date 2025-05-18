@@ -78,5 +78,3 @@ Widget customOption(String txt, IconData icon, onTap) {
     ),
   );
 }
-
-// 38:30
