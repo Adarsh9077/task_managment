@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:task_management/widgets/constant.dart';
 import 'package:timeline_tile/timeline_tile.dart';
@@ -8,7 +6,6 @@ class TaskTimeLine extends StatelessWidget {
   final Map<String, dynamic> detail;
 
   const TaskTimeLine({super.key, required this.detail});
-
   @override
   Widget build(BuildContext context) {
     return Container(
