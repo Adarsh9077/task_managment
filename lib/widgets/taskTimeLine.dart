@@ -6,11 +6,77 @@ class TaskTimeLine extends StatelessWidget {
   final Map<String, dynamic> detail;
 
   const TaskTimeLine({super.key, required this.detail});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 18),
-      child: Row(children: [_buildTimeLine(detail['titleColor'])],),
+      child: Row(
+        children: [
+          _buildTimeLine(detail['titleColor']),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  detail['time'],
+                  style: TextStyle(color: Colors.grey, fontSize: 15),
+                ),
+                detail['title'].isNotEmpty
+                    ? _buildCard(
+                      detail['bgColor'],
+                      detail['title'],
+                      detail['slot'],
+                    )
+                    : _buildCard(kWhite, "", ""),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCard(Color bgColor, String title, String slot) {
+    return Container(
+      width: 250,
+      height: 120,
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+          bottomLeft: Radius.circular(10),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[700],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[700],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -36,5 +102,4 @@ class TaskTimeLine extends StatelessWidget {
       ),
     );
   }
-}
-// 34:00 part 5
+} // 54:00 part 5

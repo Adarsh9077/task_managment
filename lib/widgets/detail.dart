@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:task_management/modals/task_modal.dart';
 import 'package:task_management/widgets/constant.dart';
+import 'package:task_management/widgets/datePicker.dart';
+import 'package:task_management/widgets/taskTimeLine.dart';
+import 'package:task_management/widgets/taskTitle.dart';
 
 class DetailPage extends StatelessWidget {
   final Task task;
@@ -9,6 +13,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final detailList = task.desc;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -21,9 +26,34 @@ class DetailPage extends StatelessWidget {
                   topRight: Radius.circular(28),
                 ),
               ),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [DatePicker(), TaskTitle()],
+              ),
             ),
           ),
+          detailList == null
+              ? SliverFillRemaining(
+                child: Container(
+                  color: kWhite,
+                  child: Center(
+                    child: Text(
+                      "N0 Task yet",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+              : SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => TaskTimeLine(detail: detailList[index]),
+                  childCount: detailList.length,
+                ),
+              ),
         ],
       ),
     );
