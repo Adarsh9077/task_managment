@@ -3,6 +3,7 @@ import 'package:dotted_border/dotted_border.dart' as type;
 import 'package:flutter/material.dart';
 import 'package:task_management/modals/task_modal.dart';
 import 'package:task_management/widgets/constant.dart';
+import 'package:task_management/widgets/detail.dart';
 
 class Tasks extends StatelessWidget {
   static final taskList = Task.generateTasks();
@@ -22,9 +23,9 @@ class Tasks extends StatelessWidget {
         itemCount: taskList.length,
         itemBuilder:
             (context, index) =>
-                taskList[index].isLast
-                    ? _buildAddTask()
-                    : _buildTask(context, taskList[index]),
+        taskList[index].isLast
+            ? _buildAddTask()
+            : _buildTask(context, taskList[index]),
       ),
     );
   }
@@ -43,41 +44,47 @@ class Tasks extends StatelessWidget {
   }
 
   Widget _buildTask(BuildContext context, Task taskList) {
-    return Container(
-      padding: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: taskList.bgColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 20,
-        children: [
-          Icon(taskList.icon, color: taskList.iconColor, size: 30),
-          // SizedBox(height: 0),
-          Text(
-            taskList.title.toString(),
-            style: TextStyle(color: Colors.grey[600], fontSize: 18),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _buildTaskStatus(
-                Colors.grey[200]!,
-                taskList.iconColor!,
-                "${taskList.left} Left",
-              ),
-              SizedBox(width: 20),
-              _buildTaskStatus(
-                kWhite,
-                taskList.iconColor!,
-                "${taskList.done} Done",
-              ),
-            ],
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DetailPage(task: taskList)));
+      },
+      child: Container(
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: taskList.bgColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 20,
+          children: [
+            Icon(taskList.icon, color: taskList.iconColor, size: 30),
+            // SizedBox(height: 0),
+            Text(
+              taskList.title.toString(),
+              style: TextStyle(color: Colors.grey[600], fontSize: 18),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _buildTaskStatus(
+                  Colors.grey[200]!,
+                  taskList.iconColor!,
+                  "${taskList.left} Left",
+                ),
+                SizedBox(width: 20),
+                _buildTaskStatus(
+                  kWhite,
+                  taskList.iconColor!,
+                  "${taskList.done} Done",
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
