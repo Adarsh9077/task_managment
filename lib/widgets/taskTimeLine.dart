@@ -58,18 +58,18 @@ class TaskTimeLine extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.only(left: 20,top: 25),
             child: Text(
               title,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: FontWeight.w500,
-                color: Colors.grey[700],
+                color: Colors.black54,
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.only(left: 20,top: 2),
             child: Text(
               slot,
               style: TextStyle(

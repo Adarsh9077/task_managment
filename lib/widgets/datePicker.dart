@@ -16,7 +16,7 @@ class _DatePickerState extends State<DatePicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 80,
       padding: EdgeInsets.symmetric(horizontal: 18),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -25,6 +25,7 @@ class _DatePickerState extends State<DatePicker> {
         ),
       ),
       child: ListView.separated(
+        scrollDirection: Axis.horizontal,
         itemBuilder:
             (context, index) => GestureDetector(
               onTap: () {
@@ -41,8 +42,8 @@ class _DatePickerState extends State<DatePicker> {
                           ? Colors.grey.withValues(alpha: 0.3)
                           : null,
                 ),
-                child: Column(
-                  children: [
+                child: Center(
+                  child:
                     Text(
                       weekDays[index],
                       style: TextStyle(
@@ -51,16 +52,12 @@ class _DatePickerState extends State<DatePicker> {
                         fontSize: 18
                       ),
                     ),
-                    SizedBox(height: 20,),
-                  ],
                 ),
               ),
             ),
-        separatorBuilder: (_, index) => SizedBox(width: 21),
+        separatorBuilder: (_, index) => SizedBox(width: 7),
         itemCount: weekDays.length,
       ),
     );
   }
 }
-
-//20:00 part 5
