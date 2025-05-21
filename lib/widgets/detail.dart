@@ -15,6 +15,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final detailList = task.desc;
     return Scaffold(
+      backgroundColor: Colors.black,
       body: CustomScrollView(
         slivers: [
           _buildAppbar(context),
@@ -22,9 +23,10 @@ class DetailPage extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(28),
-                  topRight: Radius.circular(28),
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
                 ),
+                color: Colors.white,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +36,7 @@ class DetailPage extends StatelessWidget {
           ),
           detailList == null
               ? SliverFillRemaining(
+                hasScrollBody: false,
                 child: Container(
                   color: kWhite,
                   child: Center(
@@ -61,15 +64,19 @@ class DetailPage extends StatelessWidget {
 
   Widget _buildAppbar(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: kDark,
+      backgroundColor: Colors.black,
       expandedHeight: 100,
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
-        icon: Icon(Icons.arrow_back_ios),
+        icon: Icon(Icons.arrow_back_ios, color: Colors.white),
         iconSize: 20,
       ),
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.more_vert), iconSize: 20),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.more_vert, color: Colors.white),
+          iconSize: 30,
+        ),
       ],
       flexibleSpace: FlexibleSpaceBar(
         title: Column(
@@ -78,7 +85,11 @@ class DetailPage extends StatelessWidget {
           children: [
             Text(
               "${task.title} Task",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: 5),
             Text(

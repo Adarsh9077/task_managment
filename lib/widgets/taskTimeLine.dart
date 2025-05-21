@@ -10,7 +10,10 @@ class TaskTimeLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 18),
+      // height: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 18,vertical: 0),
+      // margin: EdgeInsets.only(top: 20),
+      color: kRedLight,
       child: Row(
         children: [
           _buildTimeLine(detail['titleColor']),
@@ -42,6 +45,7 @@ class TaskTimeLine extends StatelessWidget {
     return Container(
       width: 250,
       height: 120,
+      margin: EdgeInsets.only(bottom: 20,top: 20 ),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.only(
@@ -67,7 +71,7 @@ class TaskTimeLine extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: Text(
-              title,
+              slot,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
@@ -82,7 +86,7 @@ class TaskTimeLine extends StatelessWidget {
 
   Widget _buildTimeLine(Color color) {
     return SizedBox(
-      width: 20,
+      width: 25,
       height: 115,
       child: TimelineTile(
         alignment: TimelineAlign.manual,
@@ -93,13 +97,14 @@ class TaskTimeLine extends StatelessWidget {
           indicator: Container(
             decoration: BoxDecoration(
               color: kWhite,
-              border: Border.all(color: color, width: 2),
+              border: Border.all(color: color, width: 5),
+              borderRadius: BorderRadius.circular(22),
             ),
           ),
         ),
-        afterLineStyle: LineStyle(thickness: 2, color: color),
+        afterLineStyle: LineStyle(thickness: 3, color: color),
         isFirst: true,
       ),
     );
   }
-} // 54:00 part 5
+}
